@@ -29,15 +29,19 @@ export function SignIn() {
         console.log(err.code);
         setIsLoading(false);
 
-        if(err.code === 'auth/invalid-email') {
-          return Alert.alert('Entrar', 'E-mail inválido.')
+        if (err.code === "auth/invalid-email") {
+          return Alert.alert("Entrar", "E-mail inválido.");
         }
 
-        if(err.code === 'auth/user-not-found') {
-          return Alert.alert('Entrar', 'Usuário não cadastrado.')
+        if ((err.code = "auth/wrong-password")) {
+          return Alert.alert("Entrar", "E-mail ou senha inválida");
         }
 
-        return 
+        if (err.code === "auth/user-not-found") {
+          return Alert.alert("Entrar", "E-mail ou senha inválida");
+        }
+
+        return Alert.alert("Entrar", "Não foi possivel acessar");
       });
   }
 
